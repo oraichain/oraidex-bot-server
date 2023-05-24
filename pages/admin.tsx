@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Form from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 import { useEffect, useState } from 'react';
-import Layout from '../components/layout';
+import Layout from '@/components/layout';
 
 export default function Home() {
   const [config, setConfig] = useState<any>();

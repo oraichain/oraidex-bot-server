@@ -1,25 +1,16 @@
 {
   "private": true,
   "description": "An example project for NextAuth.js with Next.js",
-  "repository": "https://github.com/nextauthjs/next-auth-example.git",
-  "bugs": {
-    "url": "https://github.com/nextauthjs/next-auth/issues"
-  },
-  "homepage": "https://next-auth-example.vercel.app",
+  "repository": "https://github.com/oraichain/oraidex-bot-server.git",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "author": "Iain Collins <me@iaincollins.com>",
-  "contributors": [
-    "Balázs Orbán <info@balazsorban.com>",
-    "Nico Domino <yo@ndo.dev>",
-    "Lluis Agusti <hi@llu.lu>"
-  ],
+  "author": "Tu Pham <tu@orai.io>",
   "dependencies": {
     "@cosmjs/cosmwasm-stargate": "^0.29.5",
-    "@oraichain/orderbook-market-maker": "^1.0.13",
+    "@oraichain/orderbook-market-maker": "^1.0.14",
     "@rjsf/core": "^5.1.0",
     "@rjsf/utils": "^5.1.0",
     "@rjsf/validator-ajv8": "^5.6.2",

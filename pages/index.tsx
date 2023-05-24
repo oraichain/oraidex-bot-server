@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Layout from '../components/layout';
+import Layout from '@/components/layout';
 
 export default function EncryptPage() {
   const [encrypted, setEncrypted] = useState('');

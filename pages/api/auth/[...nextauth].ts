@@ -24,8 +24,10 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          if (credentials?.password && process.env.ENCRYPTED_MNEMONIC) decrypt(credentials.password, process.env.ENCRYPTED_MNEMONIC);
-          return { id: '1' };
+          if (credentials?.password && process.env.ENCRYPTED_MNEMONIC) {
+            decrypt(credentials.password, process.env.ENCRYPTED_MNEMONIC);
+            return { id: credentials.password };
+          }
         } catch {}
         // Return null if user data could not be retrieved
         return null;

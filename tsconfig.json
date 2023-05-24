@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -15,6 +24,12 @@
     "jsx": "preserve",
     "incremental": true
   },
+  "ts-node": {
+    "esm": true,
+    "ignore": [
+      "node_modules/(?!@terran-one)"
+    ]
+  },
   "include": [
     "process.d.ts",
     "next-env.d.ts",
@@ -22,5 +37,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

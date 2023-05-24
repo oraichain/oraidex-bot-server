@@ -50,9 +50,7 @@ export type SchemaProperty = keyof typeof schemaProperties;
 
 export type FormData = Record<SchemaProperty, string>;
 
-const formData = Object.fromEntries(
-  ['CANCEL_PERCENTAGE', 'BUY_PERCENTAGE', 'ORDER_INTERVAL_RANGE', 'SPREAD_RANGE', 'VOLUME_RANGE', 'ORAI_THRESHOLD', 'USDT_THRESHOLD', 'ORDERBOOK_CONTRACT', 'USDT_CONTRACT'].map((k) => [k, process.env[k]])
-) as FormData;
+const formData = Object.fromEntries(Object.keys(schemaProperties).map((k) => [k, process.env[k]])) as FormData;
 
 export default {
   schema: {

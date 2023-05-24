@@ -217,10 +217,10 @@
   resolved "https://registry.yarnpkg.com/@oraichain/oraidex-contracts-sdk/-/oraidex-contracts-sdk-1.0.8.tgz#0d9c63b3dfd045cec097c25dfa22a730420408f0"
   integrity sha512-m32XvcP+MZuTrQ8uOTIs6x3USgnw1tCtB9LGLg0dz8Y2YXku/4CZzXjFxMM3lk09/+xL1DpTac8ZGoV5IiC4ZA==
 
-"@oraichain/orderbook-market-maker@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@oraichain/orderbook-market-maker/-/orderbook-market-maker-1.0.13.tgz#9a9830701834f4ff6676e07a6e4682fa240a60f0"
-  integrity sha512-5mjIEI9nFtUoqwCNpYAmHfNuit67Hr97Pq1FnH0eKdob7yDPYkjqpOazrdp4bSnWyzAVEEAAx6rXgIvIBv1EGw==
+"@oraichain/orderbook-market-maker@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@oraichain/orderbook-market-maker/-/orderbook-market-maker-1.0.14.tgz#5d7fddf6f0b0eeba435b5f71b42d5f06a8f2fe12"
+  integrity sha512-+sxjGzr2pU24u7C1xjN6wGNlDKX8gUYY8P05Fres/ahaSzsEPi5TZRaQUU+JikdYABorCOQLz2vhiMjQsHMz/A==
   dependencies:
     "@oraichain/oraidex-contracts-build" "^1.0.7"
     "@oraichain/oraidex-contracts-sdk" "^1.0.7"

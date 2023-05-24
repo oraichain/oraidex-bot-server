@@ -13,3 +13,6 @@ export default withAuth({
     }
   }
 });
+
+// me for update password
+export const config = { matcher: ['/admin', '/me'] };

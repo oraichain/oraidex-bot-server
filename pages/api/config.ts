@@ -5,17 +5,33 @@ import path from 'path';
 import dotenv from 'dotenv';
 import config from '@/config';
 import { getToken } from 'next-auth/jwt';
-import { coin } from '@cosmjs/amino';
+
 import { OraiswapLimitOrderClient, OraiswapTokenClient } from '@oraichain/oraidex-contracts-sdk';
-import { MakeOrderConfig, UserWallet, decrypt, deployOrderbook, deployToken, getCoingeckoPrice, makeOrders, setupWallet, toDecimals } from '@oraichain/orderbook-market-maker';
+import { MakeOrderConfig, UserWallet, decrypt, deployOrderbook, deployToken, encrypt, getCoingeckoPrice, makeOrders, setupWallet, toDecimals } from '@oraichain/orderbook-market-maker';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     // update config
     const envPath = path.resolve(process.cwd(), '.env.local');
-    config.formData = req.body;
-
-    const data = { ...dotenv.config({ path: envPath }).parsed, ...config.formData };
+    const data = { ...dotenv.config({ path: envPath }).parsed };
+    if (req.body.password) {
+      if (!req.body.newPassword) {
+        return res.status(500).send('New password is not provided!');
+      }
+      try {
+        // test current password then encrypt new password
+        const mnemonic = decrypt(req.body.password, process.env.ENCRYPTED_MNEMONIC);
+        const encryptedMnemonic = encrypt(req.body.newPassword, mnemonic);
+        process.env.ENCRYPTED_MNEMONIC = encryptedMnemonic;
+        Object.assign(data, { ENCRYPTED_MNEMONIC: encryptedMnemonic });
+        // ENCRYPTED_MNEMONIC
+      } catch (ex: any) {
+        res.status(500).send('Password is not correct!');
+      }
+    } else {
+      config.formData = req.body;
+      Object.assign(data, req.body);
+    }
 
     fs.writeFileSync(envPath, envfile.stringify(data));
   }

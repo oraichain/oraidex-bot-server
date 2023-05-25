@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import Layout from '@/components/layout';
 
 export default function EncryptPage() {
@@ -18,11 +17,8 @@ export default function EncryptPage() {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>Create Encrypted Mnemonic</title>
-      </Head>
-      <form className="w-100">
+    <Layout title="Create Encrypted Mnemonic">
+      <form>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input type="password" autoComplete="off" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value.trim())} placeholder="Password" />

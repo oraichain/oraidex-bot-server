@@ -25,3 +25,7 @@ iframe {
   border-radius: 0.5rem;
   filter: invert(1);
 }
+
+.nav-link.active{
+  text-decoration: underline;
+}

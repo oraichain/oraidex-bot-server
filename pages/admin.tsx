@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Form from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 import { useEffect, useState } from 'react';
@@ -28,11 +27,7 @@ export default function Home() {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>Market Maker App</title>
-      </Head>
-
+    <Layout title="Market Maker Bot Configuration">
       {config && (
         <Form
           schema={config.schema}

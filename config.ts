@@ -54,8 +54,6 @@ const formData = Object.fromEntries(Object.keys(schemaProperties).map((k) => [k,
 
 export default {
   schema: {
-    title: 'Market Maker Bot Configuration',
-    description: 'A simple market maker bot.',
     type: 'object',
     required: ['ORDERBOOK_CONTRACT', 'USDT_CONTRACT'],
     properties: schemaProperties

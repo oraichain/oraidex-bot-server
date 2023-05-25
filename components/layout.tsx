@@ -4,13 +4,13 @@ import Footer from './footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
 
-export default function Layout({ children, showHeader = true, title }: { children: ReactNode; showHeader?: boolean; title: string }) {
+export default function Layout({ children, title }: { children: ReactNode; title: string }) {
   return (
     <main className="container">
       <Head>
         <title>{title}</title>
       </Head>
-      <Header showHeader={showHeader} />
+      <Header />
       <div className="p-4">
         <h2>{title}</h2>
         {children}

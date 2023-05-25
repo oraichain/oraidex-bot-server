@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
           }
         } catch {}
         // Return null if user data could not be retrieved
-        return null;
+        throw new Error('Wrong credentials. Try again.');
       }
     })
 

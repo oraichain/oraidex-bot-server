@@ -6,7 +6,7 @@ import Layout from '@/components/layout';
 
 export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <Layout showHeader={false} title="Sign In">
+    <Layout title="Sign In">
       <form method="post" action="/api/auth/callback/credentials">
         <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
         <div className="form-group">

@@ -53,6 +53,7 @@ export type FormData = Record<SchemaProperty, string>;
 const formData = Object.fromEntries(Object.keys(schemaProperties).map((k) => [k, process.env[k]])) as FormData;
 
 export default {
+  running: false,
   schema: {
     type: 'object',
     required: ['ORDERBOOK_CONTRACT', 'USDT_CONTRACT'],

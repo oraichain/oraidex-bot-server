@@ -11,6 +11,21 @@ export default function Home() {
       .then(setConfig);
   }, []);
 
+  const switchRunning = async (running: boolean) => {
+    try {
+      await fetch('/api/config', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({ running })
+      });
+      setConfig({ ...config, running });
+    } catch (ex: any) {
+      alert(ex.toString());
+    }
+  };
+
   const updateConfig = async (formData: any) => {
     try {
       await fetch('/api/config', {
@@ -29,15 +44,25 @@ export default function Home() {
   return (
     <Layout title="Market Maker Bot Configuration">
       {config && (
-        <Form
-          schema={config.schema}
-          validator={validator}
-          formData={config.formData}
-          uiSchema={config.uiSchema}
-          onSubmit={({ formData }) => {
-            updateConfig(formData);
-          }}
-        />
+        <>
+          <div className="btn-group btn-group-toggle" data-toggle="buttons">
+            <label className={`btn btn-${config.running ? 'primary' : 'secondary'}`} onClick={() => switchRunning(true)}>
+              <input type="radio" name="options" autoComplete="off" /> Start
+            </label>
+            <label className={`btn btn-${!config.running ? 'primary' : 'secondary'}`} onClick={() => switchRunning(false)}>
+              <input type="radio" name="options" autoComplete="off" /> Stop
+            </label>
+          </div>
+          <Form
+            schema={config.schema}
+            validator={validator}
+            formData={config.formData}
+            uiSchema={config.uiSchema}
+            onSubmit={({ formData }) => {
+              updateConfig(formData);
+            }}
+          />
+        </>
       )}
     </Layout>
   );
